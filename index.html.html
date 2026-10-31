@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أصالة التراث المصري - Asala Torath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold:#C9A961;
+      --black:#0a0a0a;
+      --green:#25D366;
+      --red:#c0392b;
+    }
+
+    *{
+      margin:0;padding:0;box-sizing:border-box;
+      font-family:'Cairo',sans-serif;
+    }
+
+    body{
+      background:#fff;color:#111;line-height:1.8;
+    }
+
+    h1,h2{
+      font-family:'Amiri',serif;
+    }
+
+    .topbar{
+      background:#0a0a0a;color:#fff;text-align:center;
+      padding:10px;font-size:11px;font-weight:900;
+    }
+
+    .topbar .gold{ color:var(--gold); }
+
+    header{
+      position:sticky;top:0;z-index:90;
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid #eee;
+    }
+
+    .header-inner{
+      max-width:1440px;margin:0 auto;padding:10px 4%;
+      display:flex;justify-content:space-between;align-items:center;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:12px;
+    }
+
+    .brand-logo{
+      width:60px;height:60px;border-radius:50%;
+      border:3px solid var(--gold);background:#111;object-fit:cover;
+    }
+
+    .cart-btn{
+      background:var(--black);color:#fff;border:none;
+      padding:10px 18px;border-radius:30px;font-weight:900;cursor:pointer;
+    }
+
+    .hero{
+      max-width:1440px;margin:0 auto;
+      display:grid;grid-template-columns:1.1fr .9fr;
+      min-height:70vh;background:#0a0a0a;color:#fff;
+    }
+
+    .hero-text{
+      padding:50px 6%;display:flex;flex-direction:column;justify-content:center;
+    }
+
+    .badge{
+      display:inline-block;background:rgba(201,169,97,.15);
+      border:1px solid var(--gold);color:var(--gold);
+      padding:6px 12px;border-radius:20px;font-size:10px;font-weight:900;margin-bottom:12px;
+    }
+
+    .hero h1{
+      font-size:clamp(28px,4vw,44px);line-height:1.1;margin-bottom:10px;
+    }
+
+    .hero h1 em{
+      color:var(--gold);font-style:normal;
+    }
+
+    .hero p{
+      color:#bbb;font-size:13px;margin-bottom:16px;line-height:1.8;
+    }
+
+    .btn-white, .btn-gold{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 20px;border-radius:40px;
+      font-weight:900;text-decoration:none;font-size:12px;
+    }
+
+    .btn-white{
+      background:#fff;color:#000;
+    }
+
+    .btn-gold{
+      background:var(--gold);color:#000;
+    }
+
+    .hero-img{
+      background:radial-gradient(circle at center,#3a1a1a,#0a0a0a);
+      display:flex;align-items:center;justify-content:center;padding:20px;
+    }
+
+    .hero-img img{
+      width:100%;max-width:400px;aspect-ratio:1;border-radius:50%;
+      object-fit:cover;border:4px solid var(--gold);
+    }
+
+    .section{
+      max-width:1440px;margin:0 auto;padding:40px 4%;
+    }
+
+    .products{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;
+    }
+
+    .card{
+      background:#fff;border-radius:16px;overflow:hidden;
+      border:1px solid #f0ebe0;display:flex;flex-direction:column;
+    }
+
+    .card-media{
+      height:320px;position:relative;background:#f5f1e8;
+    }
+
+    .card-media img{
+      width:100%;height:100%;object-fit:cover;
+    }
+
+    .badge-cat{
+      position:absolute;top:10px;right:10px;
+      background:rgba(0,0,0,.7);color:#fff;
+      padding:4px 10px;border-radius:20px;font-size:9px;
+    }
+
+    .badge-price{
+      position:absolute;bottom:10px;left:10px;
+      background:var(--gold);color:#000;
+      padding:5px 10px;border-radius:8px;font-weight:900;font-size:11px;
+    }
+
+    .card-body{
+      padding:14px;display:flex;flex-direction:column;flex:1;
+    }
+
+    .royal{
+      color:var(--gold);font-size:10px;font-weight:900;text-align:center;
+    }
+
+    .name{
+      font-family:'Amiri',serif;font-size:16px;font-weight:800;
+      text-align:center;margin:4px 0;
+    }
+
+    .marketing{
+      font-size:11px;color:#444;line-height:1.7;text-align:justify;
+      background:#faf7f0;padding:8px;border-radius:8px;
+      border-right:3px solid var(--gold);margin:6px 0;flex:1;
+    }
+
+    .price-box{
+      background:#fff8e7;border:1px dashed var(--gold);
+      border-radius:8px;padding:6px;text-align:center;margin:6px 0;
+    }
+
+    .price-box .old{
+      color:#999;text-decoration:line-through;font-size:10px;
+    }
+
+    .price-box .new{
+      color:var(--gold);font-weight:900;font-size:13px;
+    }
+
+    .btn-order{
+      width:100%;background:var(--green);color:#fff;border:none;
+      padding:10px;border-radius:8px;font-weight:900;cursor:pointer;font-size:11px;
+    }
+
+    .cart-modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;
+      display:none;align-items:center;justify-content:center;padding:12px;
+    }
+
+    .cart-modal.open{ display:flex; }
+
+    .cart-box{
+      background:#fff;border-radius:14px;max-width:440px;width:100%;
+      max-height:90vh;overflow:auto;
+    }
+
+    .cart-head{
+      background:var(--gold);color:#fff;padding:10px 14px;
+      display:flex;justify-content:space-between;font-weight:900;
+    }
+
+    .cart-body{ padding:12px; }
+
+    .float-wa{
+      position:fixed;bottom:12px;left:12px;width:54px;height:54px;
+      background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:24px;z-index:90;cursor:pointer;
+    }
+
+    #adminPanel{ display:none; }
+    #adminPanel.active{
+      display:block;max-width:1100px;margin:0 auto;padding:14px;
+    }
+
+    .admin-top{
+      background:#111;color:#fff;padding:12px 16px;border-radius:10px;
+      display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;
+    }
+
+    .admin-tabs{
+      display:flex;gap:6px;padding:8px;background:#fff;border-radius:10px;
+      border-bottom:3px solid var(--gold);margin-bottom:10px;
+    }
+
+    .admin-tab{
+      padding:8px 12px;border:none;background:#f5f0e5;border-radius:20px;
+      font-weight:800;font-size:10px;cursor:pointer;
+    }
+
+    .admin-tab.active{
+      background:var(--gold);color:#fff;
+    }
+
+    .admin-panel{ display:none; }
+    .admin-panel.active{ display:block; }
+
+    .admin-card{
+      background:#fff;border:1px solid rgba(201,169,97,.3);
+      border-radius:10px;padding:12px;margin-bottom:10px;
+    }
+
+    .admin-field{ margin-bottom:8px; }
+    .admin-field label{
+      display:block;font-size:10px;font-weight:800;margin-bottom:3px;
+    }
+
+    .admin-field input,.admin-field textarea,.admin-field select{
+      width:100%;padding:8px 10px;border:2px solid #e8e0d0;border-radius:8px;font-size:11px;
+    }
+
+    .admin-btn{
+      padding:8px 12px;border:none;border-radius:8px;
+      font-weight:800;font-size:11px;cursor:pointer;
+    }
+
+    .admin-btn-primary{
+      background:var(--gold);color:#fff;width:100%;
+    }
+
+    .toast{
+      position:fixed;bottom:16px;left:50%;
+      transform:translateX(-50%) translateY(100px);
+      background:#111;color:#fff;padding:10px 16px;border-radius:20px;
+      font-size:10px;font-weight:800;z-index:300;transition:.3s;
+      visibility:hidden;opacity:0;
+    }
+
+    .toast.show{
+      transform:translateX(-50%) translateY(0);
+      visibility:visible;opacity:1;
+    }
+  </style>
+</head>
+<body>
+  <div id="publicSite">
+    <div class="topbar">
+      <span class="gold">✨ أصالة التراث المصري</span> 🚚 شحن من الكويت إلى دول الخليج وجميع أنحاء العالم ❤️ عاشق ومعشوق
+    </div>
+
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <img class="brand-logo" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=200&q=80" alt="logo">
+          <div class="brand-name">أصالة <b>التراث</b></div>
+        </div>
+        <button class="cart-btn" onclick="openCart()">🛒 السلة <span id="cartCount">0</span></button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <span class="badge">👑 التاج الملكي — نجمة الصدف — عين حورس</span>
+        <h1>أصالة التراث المصري<br><em>صُنع في مصر</em></h1>
+        <p>للضيافة شكل.. وحين يلتقي عبق الأصالة بفن الصدف البحري، يولد طقم يروي حكايةً من الفخامة والجمال.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="#products" class="btn-white">تسوّق المجموعة ←</a>
+          <a href="https://wa.me/96551118069" target="_blank" class="btn-gold">💬 احجز الآن</a>
+        </div>
+      </div>
+
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="موضة تراثية">
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div style="text-align:center;margin-bottom:20px">
+        <span style="color:var(--gold);letter-spacing:3px;font-size:10px;font-weight:900">ASALA-TORATH</span>
+        <h2 style="font-size:28px">مجموعتنا — تحف فنية</h2>
+      </div>
+      <div class="products" id="grid"></div>
+    </section>
+
+    <footer style="text-align:center;padding:20px;border-top:1px solid #eee">
+      <p style="font-size:11px;color:#777">🚚 شحن من الكويت إلى دول الخليج — 96551118069 — @asalat.al.torath.kw.eg</p>
+    </footer>
+
+    <div class="float-wa" onclick="window.open('https://wa.me/96551118069','_blank')">💬</div>
+
+    <div class="cart-modal" id="cartModal" onclick="if(event.target===this) closeCart()">
+      <div class="cart-box">
+        <div class="cart-head">
+          <span>🛒 السلة</span>
+          <button onclick="closeCart()" style="background:rgba(255,255,255,.2);border:none;color:#fff;width:22px;height:22px;border-radius:50%">✕</button>
+        </div>
+        <div class="cart-body" id="cartBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="adminPanel">
+    <div class="admin-top">
+      <h3>🔐 لوحة تحكم</h3>
+      <button onclick="location.href=location.pathname" style="background:#c0392b;color:#fff;border:none;padding:6px 12px;border-radius:8px">✖ خروج</button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="general">🏠 عام</button>
+      <button class="admin-tab" data-tab="products">📦 المنتجات</button>
+    </div>
+
+    <div class="admin-panel active" id="tab-general">
+      <div class="admin-card">
+        <div class="admin-field"><label>اسم المتجر</label><input id="set-storeName"></div>
+        <div class="admin-field"><label>واتساب</label><input id="set-whatsapp"></div>
+        <div class="admin-field"><label>نص الشحن</label><input id="set-shippingText"></div>
+        <button class="admin-btn admin-btn-primary" onclick="saveGeneral()">💾 حفظ</button>
+      </div>
+    </div>
+
+    <div class="admin-panel" id="tab-products">
+      <div class="admin-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h4>📦 المنتجات (<span id="prodCount">0</span>)</h4>
+          <button class="admin-btn" style="background:var(--green);color:#fff" onclick="openProductModal()">➕ منتج جديد</button>
+        </div>
+      </div>
+      <div id="adminGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px"></div>
+    </div>
+  </div>
+
+  <div class="cart-modal" id="productModal" onclick="if(event.target===this) closeProductModal()">
+    <div class="cart-box" style="max-width:540px">
+      <div class="cart-head">
+        <span id="modalTitle">➕ منتج جديد</span>
+        <button onclick="closeProductModal()" style="background:rgba(255,255,255,.2);border:none;color:#fff;width:22px;height:22px;border-radius:50%">✕</button>
+      </div>
+      <div class="cart-body">
+        <input type="hidden" id="p-id">
+        <div class="admin-field"><label>اسم المنتج</label><input id="p-name"></div>
+        <div class="admin-field"><label>الجملة الافتتاحية</label><input id="p-royal"></div>
+        <div class="admin-field"><label>التصنيف</label><select id="p-category"></select></div>
+        <div class="admin-field"><label>الوصف</label><textarea id="p-marketing" rows="3"></textarea></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div class="admin-field"><label>السعر الجديد</label><input id="p-price" type="number" step="0.001"></div>
+          <div class="admin-field"><label>السعر القديم</label><input id="p-oldPrice" type="number" step="0.001"></div>
+        </div>
+        <div class="admin-field"><label>رابط الصورة</label><input id="p-image"></div>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <button class="admin-btn" style="flex:1;background:var(--green);color:#fff" onclick="saveProduct()">💾 حفظ</button>
+          <button class="admin-btn" style="flex:1;background:#eee" onclick="closeProductModal()">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const DB_KEY = 'asala_v4';
+    const CART_KEY = 'asala_cart';
+    const CATEGORIES = ['صواني هلال', 'صواني جونت', 'ترابيزات بوف', 'مباخر', 'أثاث ملكي'];
+
+    const DEFAULTS = {
+      general: {
+        storeName: 'أصالة التراث المصري',
+        whatsapp: '96551118069',
+        shippingText: '🚚 شحن من الكويت إلى دول الخليج وجميع أنحاء العالم'
+      },
+      products: [
+        {
+          id: 1,
+          name: 'طقم صواني هلال - الملكة نفرتيتي',
+          royal: 'للضيافة شكل..',
+          category: 'صواني هلال',
+          price: 5,
+          oldPrice: 6.5,
+          marketing: 'للضيافة شكل.. وحين يلتقي عبق الأصالة بفن الصدف البحري، يولد طقم صواني يروي حكايةً من الفخامة والجمال. 🤎 بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي.',
+          image: 'https://images.unsplash.com/photo-1578500494198-ec6a1f0e7fdb?w=600&q=80'
+        },
+        {
+          id: 2,
+          name: 'ترابيزة بوف - السلطان صلاح الدين',
+          royal: 'للتميز عنوان..',
+          category: 'ترابيزات بوف',
+          price: 45,
+          oldPrice: 55,
+          marketing: 'للتميز عنوان.. وحين يلتقي عبق الأصالة بفن الصدف البحري، تولد ترابيزة تروي حكايةً من الفخامة.',
+          image: 'https://images.unsplash.com/photo-1537051605637-eb3ce2d0b1b0?w=600&q=80'
+        },
+        {
+          id: 3,
+          name: 'مبخر الملكة حتشبسوت',
+          royal: 'مبخر الصدف قبل الضيوف..',
+          category: 'مباخر',
+          price: 10,
+          oldPrice: 15,
+          marketing: 'حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد مبخرٌ يروي حكايةً من الفخامة. ✨ هذا مو صبغ.. هذا صدف بحر طبيعي ينشغل يدوياً 40 يوم! 🐚',
+          image: 'https://images.unsplash.com/photo-1602928294270-9f1c2e8f1e1e?w=600&q=80'
+        }
+      ]
+    };
+
+    let state = loadState();
+    let cart = loadCart();
+
+    function safeStorageGet(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch {
+        return null;
+      }
+    }
+
+    function safeStorageSet(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {
+        console.warn('Storage unavailable:', e);
+      }
+    }
+
+    function normalizeProduct(p = {}) {
+      return {
+        id: Number(p.id) || Date.now(),
+        name: String(p.name || 'منتج'),
+        royal: String(p.royal || ''),
+        category: String(p.category || CATEGORIES[0]),
+        price: Number(p.price) || 0,
+        oldPrice: Number(p.oldPrice) || Number(p.price) || 0,
+        marketing: String(p.marketing || ''),
+        image: String(p.image || 'https://images.unsplash.com/photo-1578500494198-ec6a1f0e7fdb?w=600&q=80')
+      };
+    }
+
+    function loadState() {
+      try {
+        const raw = safeStorageGet(DB_KEY);
+        if (!raw) return JSON.parse(JSON.stringify(DEFAULTS));
+
+        const parsed = JSON.parse(raw);
+        return {
+          general: { ...DEFAULTS.general, ...(parsed.general || {}) },
+          products: Array.isArray(parsed.products) && parsed.products.length
+            ? parsed.products.map(normalizeProduct)
+            : JSON.parse(JSON.stringify(DEFAULTS.products))
+        };
+      } catch {
+        return JSON.parse(JSON.stringify(DEFAULTS));
+      }
+    }
+
+    function saveState() {
+      safeStorageSet(DB_KEY, JSON.stringify(state));
+    }
+
+    function loadCart() {
+      try {
+        const raw = safeStorageGet(CART_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveCart() {
+      safeStorageSet(CART_KEY, JSON.stringify(cart));
+    }
+
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+
+      el.textContent = msg;
+      el.classList.add('show');
+
+      clearTimeout(toast.timer);
+      toast.timer = setTimeout(() => el.classList.remove('show'), 3000);
+    }
+
+    const IS_ADMIN = new URLSearchParams(location.search).get('admin') === '1';
+
+    function init() {
+      if (IS_ADMIN) {
+        const publicSite = document.getElementById('publicSite');
+        if (publicSite) publicSite.style.display = 'none';
+
+        const adminPanel = document.getElementById('adminPanel');
+        if (adminPanel) adminPanel.classList.add('active');
+
+        loadGeneral();
+        renderAdmin();
+      } else {
+        renderPublic();
+      }
+    }
+
+    function renderPublic() {
+      renderProducts();
+      updateCart();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('grid');
+      if (!grid) return;
+
+      grid.innerHTML = state.products.map(p => `
+        <div class="card">
+          <div class="card-media">
+            <img src="${p.image}" loading="lazy" alt="${p.name}">
+            <span class="badge-cat">${p.category}</span>
+            <span class="badge-price">${Number(p.price || 0).toFixed(3)} د.ك</span>
+          </div>
+          <div class="card-body">
+            <div class="royal">${p.royal}</div>
+            <div class="name">${p.name}</div>
+            <div class="marketing">${p.marketing}</div>
+            <div class="price-box">
+              <span class="old">${Number(p.oldPrice || p.price || 0).toFixed(3)} د.ك</span>
+              <span class="new">${Number(p.price || 0).toFixed(3)} د.ك</span>
+            </div>
+            <button class="btn-order" onclick="addToCart(${p.id})">💬 احجز الآن — ${state.general.whatsapp}</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function updateCart() {
+      const count = cart.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+      const cartCount = document.getElementById('cartCount');
+      if (cartCount) cartCount.textContent = count;
+    }
+
+    function addToCart(id) {
+      const product = state.products.find(x => Number(x.id) === Number(id));
+      if (!product) return;
+
+      const existing = cart.find(x => Number(x.id) === Number(id));
+      if (existing) {
+        existing.qty = (Number(existing.qty) || 0) + 1;
+      } else {
+        cart.push({
+          id: Number(product.id),
+          name: product.name,
+          price: Number(product.price) || 0,
+          image: product.image,
+          qty: 1
+        });
+      }
+
+      saveCart();
+      updateCart();
+      openCart();
+    }
+
+    function openCart() {
+      const modal = document.getElementById('cartModal');
+      if (!modal) return;
+
+      modal.classList.add('open');
+      renderCart();
+    }
+
+    function closeCart() {
+      const modal = document.getElementById('cartModal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function changeCartQty(index, delta) {
+      const item = cart[index];
+      if (!item) return;
+
+      const nextQty = (Number(item.qty) || 0) + delta;
+      if (nextQty <= 0) {
+        cart.splice(index, 1);
+      } else {
+        item.qty = nextQty;
+      }
+
+      saveCart();
+      renderCart();
+      updateCart();
+    }
+
+    function renderCart() {
+      const body = document.getElementById('cartBody');
+      if (!body) return;
+
+      if (!cart.length) {
+        body.innerHTML = '<div style="text-align:center;padding:20px;color:#999">سلتك فارغة</div>';
+        updateCart();
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.qty) || 0), 0);
+
+      body.innerHTML =
+        cart.map((item, index) => `
+          <div style="display:flex;gap:8px;align-items:center;background:#faf7f0;padding:8px;border-radius:8px;margin-bottom:6px">
+            <img src="${item.image}" style="width:46px;height:46px;border-radius:8px;object-fit:cover">
+            <div style="flex:1">
+              <div style="font-size:11px;font-weight:800">${item.name}</div>
+              <div style="color:#C9A961;font-weight:900">${((Number(item.price) || 0) * (Number(item.qty) || 0)).toFixed(3)} د.ك</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <button onclick="changeCartQty(${index}, -1)" style="width:24px;height:24px;border:none;border-radius:50%;background:#eee">-</button>
+              <span style="font-size:11px;font-weight:800">${item.qty}</span>
+              <button onclick="changeCartQty(${index}, 1)" style="width:24px;height:24px;border:none;border-radius:50%;background:#eee">+</button>
+              <button onclick="changeCartQty(${index}, -999)" style="width:30px;height:24px;border:none;border-radius:6px;background:#c0392b;color:#fff">حذف</button>
+            </div>
+          </div>
+        `).join('') +
+        `
+          <div style="display:flex;justify-content:space-between;font-weight:900;margin-top:8px">
+            <span>الإجمالي:</span>
+            <span>${total.toFixed(3)} د.ك</span>
+          </div>
+          <button onclick="checkout()" style="width:100%;background:#25D366;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:900;margin-top:8px">
+            💬 إتمام الطلب واتساب
+          </button>
+        `;
+
+      updateCart();
+    }
+
+    function checkout() {
+      if (!cart.length) return;
+
+      const total = cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.qty) || 0), 0);
+      let msg = `السلام عليكم 🌹\nطلب من ${state.general.storeName}:\n\n`;
+
+      cart.forEach((item, index) => {
+        msg += `${index + 1}. ${item.name} × ${item.qty} = ${((Number(item.price) || 0) * (Number(item.qty) || 0)).toFixed(3)} د.ك\n`;
+      });
+
+      msg += `\nالإجمالي: ${total.toFixed(3)} د.ك\n🚚 ${state.general.shippingText}`;
+
+      window.open(`https://wa.me/${state.general.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    document.querySelectorAll('.admin-tab').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach(x => x.classList.remove('active'));
+        document.querySelectorAll('.admin-panel').forEach(x => x.classList.remove('active'));
+
+        button.classList.add('active');
+        const target = document.getElementById('tab-' + button.dataset.tab);
+        if (target) target.classList.add('active');
+      });
+    });
+
+    function loadGeneral() {
+      const g = state.general;
+      const set = id => document.getElementById(id);
+
+      if (set('set-storeName')) set('set-storeName').value = g.storeName;
+      if (set('set-whatsapp')) set('set-whatsapp').value = g.whatsapp;
+      if (set('set-shippingText')) set('set-shippingText').value = g.shippingText;
+    }
+
+    function saveGeneral() {
+      const set = id => document.getElementById(id);
+
+      state.general = {
+        storeName: set('set-storeName')?.value?.trim() || state.general.storeName,
+        whatsapp: (set('set-whatsapp')?.value || '').replace(/[^0-9]/g, '') || state.general.whatsapp,
+        shippingText: set('set-shippingText')?.value?.trim() || state.general.shippingText
+      };
+
+      saveState();
+      toast('✅ تم الحفظ');
+      renderProducts();
+    }
+
+    function renderAdmin() {
+      const grid = document.getElementById('adminGrid');
+      if (!grid) return;
+
+      const countEl = document.getElementById('prodCount');
+      if (countEl) countEl.textContent = state.products.length;
+
+      grid.innerHTML = state.products.map(p => `
+        <div style="background:#fff;border:1px solid #eee;border-radius:10px;overflow:hidden">
+          <div style="height:110px;background:#f0e8d8">
+            <img src="${p.image}" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <div style="padding:8px">
+            <div style="font-size:11px;font-weight:800">${p.name}</div>
+            <div style="color:var(--gold);font-weight:800">${Number(p.price || 0).toFixed(3)} د.ك</div>
+            <div style="display:flex;gap:4px;margin-top:6px">
+              <button class="admin-btn" style="flex:1;background:#f5f0e5" onclick="openProductModal(${p.id})">✏️</button>
+              <button class="admin-btn" style="flex:1;background:#c0392b;color:#fff" onclick="deleteProduct(${p.id})">🗑️</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openProductModal(id = null) {
+      const cat = document.getElementById('p-category');
+      if (cat) {
+        cat.innerHTML = CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join('');
+      }
+
+      document.getElementById('p-id').value = '';
+
+      if (id) {
+        const p = state.products.find(x => Number(x.id) === Number(id));
+        if (!p) return;
+
+        document.getElementById('p-id').value = p.id;
+        document.getElementById('p-name').value = p.name;
+        document.getElementById('p-royal').value = p.royal || '';
+        document.getElementById('p-category').value = p.category || CATEGORIES[0];
+        document.getElementById('p-marketing').value = p.marketing || '';
+        document.getElementById('p-price').value = p.price;
+        document.getElementById('p-oldPrice').value = p.oldPrice;
+        document.getElementById('p-image').value = p.image || '';
+        document.getElementById('modalTitle').textContent = '✏️ تعديل المنتج';
+      } else {
+        ['p-name', 'p-royal', 'p-marketing', 'p-price', 'p-oldPrice', 'p-image']
+          .forEach(key => {
+            const el = document.getElementById(key);
+            if (el) el.value = '';
+          });
+
+        if (document.getElementById('p-category')) {
+          document.getElementById('p-category').value = CATEGORIES[0];
+        }
+        document.getElementById('modalTitle').textContent = '➕ منتج جديد';
+      }
+
+      document.getElementById('productModal').classList.add('open');
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById('productModal');
+      if (modal) modal.classList.remove('open');
+    }
+
+    function saveProduct() {
+      const name = document.getElementById('p-name').value.trim();
+      const marketing = document.getElementById('p-marketing').value.trim();
+      const price = parseFloat(document.getElementById('p-price').value);
+
+      if (!name || !marketing || isNaN(price)) {
+        toast('⚠️ اكمل اسم المنتج والوصف والسعر');
+        return;
+      }
+
+      const idVal = document.getElementById('p-id').value;
+      const prod = normalizeProduct({
+        id: idVal ? +idVal : Date.now(),
+        name,
+        royal: document.getElementById('p-royal').value,
+        category: document.getElementById('p-category').value,
+        marketing,
+        price,
+        oldPrice: parseFloat(document.getElementById('p-oldPrice').value) || price,
+        image: document.getElementById('p-image').value
+      });
+
+      if (idVal) {
+        const idx = state.products.findIndex(x => Number(x.id) === Number(idVal));
+        if (idx >= 0) state.products[idx] = prod;
+      } else {
+        state.products.unshift(prod);
+      }
+
+      saveState();
+      closeProductModal();
+      renderAdmin();
+      renderProducts();
+      toast('✅ تم حفظ المنتج');
+    }
+
+    function deleteProduct(id) {
+      if (!confirm('حذف؟')) return;
+
+      state.products = state.products.filter(p => Number(p.id) !== Number(id));
+      saveState();
+      renderAdmin();
+      renderProducts();
+      toast('🗑️ تم الحذف');
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
