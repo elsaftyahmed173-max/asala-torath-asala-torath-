@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أصالة التراث المصري</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700;900&family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold:#C9A961;
+      --gold-soft:#f7f0df;
+      --black:#0a0a0a;
+      --green:#25D366;
+      --red:#c0392b;
+      --beige:#faf7f0;
+      --soft:#f3efe8;
+      --text:#111111;
+      --muted:#6a6a6a;
+      --line:#eee6d6;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Cairo',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#fff;
+      color:var(--text);
+      line-height:1.8;
+      direction:rtl;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+      border:0;
+    }
+
+    h1,h2,h3,h4{
+      font-family:'Amiri',serif;
+    }
+
+    .topbar{
+      background:#0a0a0a;
+      color:#fff;
+      text-align:center;
+      padding:10px 12px;
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+
+    .topbar .gold{
+      color:var(--gold);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:90;
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid #eee;
+      backdrop-filter:blur(6px);
+    }
+
+    .header-inner{
+      max-width:1440px;
+      margin:0 auto;
+      padding:10px 4%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-logo{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:3px solid var(--gold);
+      object-fit:cover;
+      background:#111;
+    }
+
+    .brand-name{
+      font-size:19px;
+      font-weight:900;
+      color:#111;
+      line-height:1.2;
+    }
+
+    .brand-name b{
+      color:var(--gold);
+    }
+
+    .cart-btn{
+      background:var(--black);
+      color:#fff;
+      border:none;
+      padding:10px 18px;
+      border-radius:30px;
+      font-weight:900;
+      cursor:pointer;
+      font-size:12px;
+      transition:.2s ease;
+    }
+
+    .cart-btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      max-width:1440px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      min-height:70vh;
+      background:#0a0a0a;
+      color:#fff;
+    }
+
+    .hero-text{
+      padding:50px 6%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .badge{
+      display:inline-block;
+      width:max-content;
+      background:rgba(201,169,97,.15);
+      border:1px solid var(--gold);
+      color:var(--gold);
+      padding:6px 12px;
+      border-radius:20px;
+      font-size:10px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+
+    .hero h1{
+      font-size:clamp(28px,4vw,44px);
+      line-height:1.1;
+      margin-bottom:10px;
+    }
+
+    .hero h1 em{
+      color:var(--gold);
+      font-style:normal;
+    }
+
+    .hero p{
+      color:#bbb;
+      font-size:13px;
+      margin-bottom:16px;
+      line-height:1.8;
+      max-width:540px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .btn-white, .btn-gold{
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:40px;
+      font-weight:900;
+      text-decoration:none;
+      font-size:12px;
+      transition:.2s ease;
+    }
+
+    .btn-white{
+      background:#fff;
+      color:#000;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:#000;
+    }
+
+    .btn-white:hover, .btn-gold:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero-img{
+      background:radial-gradient(circle at center,#2a1414,#0a0a0a);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .hero-img img{
+      width:100%;
+      max-width:420px;
+      aspect-ratio:1;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid var(--gold);
+    }
+
+    .section{
+      max-width:1440px;
+      margin:0 auto;
+      padding:40px 4%;
+    }
+
+    .section-head{
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    .section-head .mini{
+      color:var(--gold);
+      letter-spacing:3px;
+      font-size:11px;
+      font-weight:900;
+    }
+
+    .section-head h2{
+      font-size:30px;
+      color:#111;
+      margin-top:6px;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+      gap:18px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid #f0ebe0;
+      display:flex;
+      flex-direction:column;
+      box-shadow:0 8px 20px rgba(17,17,17,0.02);
+    }
+
+    .card-media{
+      height:320px;
+      position:relative;
+      background:#f5f1e8;
+    }
+
+    .card-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .badge-cat{
+      position:absolute;
+      top:10px;
+      right:10px;
+      background:rgba(0,0,0,.72);
+      color:#fff;
+      padding:4px 10px;
+      border-radius:20px;
+      font-size:9px;
+      font-weight:700;
+    }
+
+    .badge-price{
+      position:absolute;
+      bottom:10px;
+      left:10px;
+      background:var(--gold);
+      color:#000;
+      padding:5px 10px;
+      border-radius:8px;
+      font-weight:900;
+      font-size:11px;
+    }
+
+    .card-body{
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .royal{
+      color:var(--gold);
+      font-size:10px;
+      font-weight:900;
+      text-align:center;
+      letter-spacing:1px;
+    }
+
+    .name{
+      font-family:'Amiri',serif;
+      font-size:16px;
+      font-weight:800;
+      text-align:center;
+      margin:4px 0;
+    }
+
+    .marketing{
+      font-size:11px;
+      color:#444;
+      line-height:1.7;
+      text-align:justify;
+      background:#faf7f0;
+      padding:10px 10px;
+      border-radius:8px;
+      border-right:3px solid var(--gold);
+      margin:6px 0;
+      flex:1;
+    }
+
+    .price-box{
+      background:#fff8e7;
+      border:1px dashed var(--gold);
+      border-radius:8px;
+      padding:6px;
+      text-align:center;
+      margin:6px 0;
+    }
+
+    .price-box .old{
+      color:#999;
+      text-decoration:line-through;
+      font-size:10px;
+      display:block;
+    }
+
+    .price-box .new{
+      color:var(--gold);
+      font-weight:900;
+      font-size:13px;
+      display:block;
+      margin-top:2px;
+    }
+
+    .btn-order{
+      width:100%;
+      background:var(--green);
+      color:#fff;
+      border:none;
+      padding:10px 12px;
+      border-radius:8px;
+      font-weight:900;
+      cursor:pointer;
+      font-size:11px;
+      transition:.2s ease;
+    }
+
+    .btn-order:hover{
+      filter:brightness(0.96);
+    }
+
+    .float-wa{
+      position:fixed;
+      bottom:12px;
+      left:12px;
+      width:54px;
+      height:54px;
+      background:#25D366;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:24px;
+      z-index:90;
+      cursor:pointer;
+      box-shadow:0 10px 20px rgba(37,211,102,.35);
+    }
+
+    .cart-modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.6);
+      z-index:200;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
+    }
+
+    .cart-modal.open{
+      display:flex;
+    }
+
+    .cart-box{
+      background:#fff;
+      border-radius:14px;
+      max-width:440px;
+      width:100%;
+      max-height:90vh;
+      overflow:auto;
+    }
+
+    .cart-head{
+      background:var(--gold);
+      color:#fff;
+      padding:10px 14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-weight:900;
+    }
+
+    .cart-head button{
+      background:rgba(255,255,255,.2);
+      border:none;
+      color:#fff;
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      cursor:pointer;
+    }
+
+    .cart-body{
+      padding:12px;
+    }
+
+    .cart-item{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      background:#faf7f0;
+      padding:8px;
+      border-radius:8px;
+      margin-bottom:8px;
+    }
+
+    .cart-item img{
+      width:46px;
+      height:46px;
+      border-radius:8px;
+      object-fit:cover;
+    }
+
+    .cart-item .info{
+      flex:1;
+      min-width:0;
+    }
+
+    .cart-item .name{
+      font-size:11px;
+      text-align:right;
+      margin:0;
+      line-height:1.5;
+      font-weight:800;
+    }
+
+    .cart-item .price{
+      color:var(--gold);
+      font-weight:900;
+      font-size:12px;
+      margin-top:2px;
+    }
+
+    .qty-box{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      margin-top:4px;
+    }
+
+    .qty-box button{
+      width:22px;
+      height:22px;
+      border:none;
+      border-radius:6px;
+      background:#f0e7d5;
+      cursor:pointer;
+      font-weight:900;
+    }
+
+    .cart-total{
+      display:flex;
+      justify-content:space-between;
+      font-weight:900;
+      margin-top:8px;
+      padding-top:8px;
+      border-top:1px solid #eee;
+    }
+
+    .checkout-btn{
+      width:100%;
+      background:var(--green);
+      color:#fff;
+      border:none;
+      padding:11px 14px;
+      border-radius:10px;
+      font-weight:900;
+      margin-top:8px;
+      cursor:pointer;
+    }
+
+    .empty-state{
+      text-align:center;
+      padding:20px;
+      color:#999;
+      font-size:12px;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px 16px 28px;
+      border-top:1px solid #eee;
+      font-size:11px;
+      color:#777;
+      background:#fff;
+    }
+
+    /* Admin Panel */
+    #adminPanel{
+      display:none;
+    }
+
+    #adminPanel.active{
+      display:block;
+      max-width:1100px;
+      margin:0 auto;
+      padding:14px;
+    }
+
+    .admin-top{
+      background:#111;
+      color:#fff;
+      padding:12px 16px;
+      border-radius:10px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+    }
+
+    .admin-tabs{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      padding:8px;
+      background:#fff;
+      border-radius:10px;
+      border-bottom:3px solid var(--gold);
+      margin-bottom:10px;
+    }
+
+    .admin-tab{
+      padding:8px 12px;
+      border:none;
+      background:#f5f0e5;
+      border-radius:20px;
+      font-weight:800;
+      font-size:10px;
+      cursor:pointer;
+      color:#111;
+    }
+
+    .admin-tab.active{
+      background:var(--gold);
+      color:#fff;
+    }
+
+    .admin-panel{
+      display:none;
+    }
+
+    .admin-panel.active{
+      display:block;
+    }
+
+    .admin-card{
+      background:#fff;
+      border:1px solid rgba(201,169,97,.3);
+      border-radius:10px;
+      padding:12px;
+      margin-bottom:10px;
+    }
+
+    .admin-field{
+      margin-bottom:8px;
+    }
+
+    .admin-field label{
+      display:block;
+      font-size:10px;
+      font-weight:800;
+      margin-bottom:3px;
+      color:#333;
+    }
+
+    .admin-field input,
+    .admin-field textarea,
+    .admin-field select{
+      width:100%;
+      padding:8px 10px;
+      border:2px solid #e8e0d0;
+      border-radius:8px;
+      font-size:11px;
+      background:#fff;
+    }
+
+    textarea{
+      resize:vertical;
+      min-height:80px;
+    }
+
+    .admin-btn{
+      padding:8px 12px;
+      border:none;
+      border-radius:8px;
+      font-weight:800;
+      font-size:11px;
+      cursor:pointer;
+    }
+
+    .admin-btn-primary{
+      background:var(--gold);
+      color:#fff;
+      width:100%;
+    }
+
+    .toast{
+      position:fixed;
+      bottom:16px;
+      left:50%;
+      transform:translateX(-50%) translateY(100px);
+      background:#111;
+      color:#fff;
+      padding:10px 16px;
+      border-radius:20px;
+      font-size:10px;
+      font-weight:800;
+      z-index:300;
+      transition:.3s ease;
+      white-space:nowrap;
+    }
+
+    .toast.show{
+      transform:translateX(-50%) translateY(0);
+    }
+
+    @media (max-width:768px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+
+      .hero-img{
+        order:-1;
+        padding:30px 20px 0;
+      }
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .header-inner{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .section-head h2{
+        font-size:26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="publicSite">
+    <div class="topbar">
+      <span class="gold">✨ أصالة التراث المصري</span> 🚚 شحن من الكويت إلى دول الخليج وجميع أنحاء العالم ❤️ عاشق ومعشوق — صنع في مصر
+    </div>
+
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <img class="brand-logo" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=200&q=80" alt="logo" />
+          <div class="brand-name">أصالة <b>التراث</b></div>
+        </div>
+        <button class="cart-btn" onclick="openCart()">🛒 السلة <span id="cartCount">0</span></button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <span class="badge">👑 التاج الملكي — نجمة الصدف — عين حورس</span>
+        <h1>أصالة التراث المصري<br><em>صُنع في مصر</em></h1>
+        <p>للضيافة شكل.. وحين يلتقي عبق الأصالة بفن الصدف البحري، يولد طقم يروي حكايةً من الفخامة والجمال.</p>
+        <div class="hero-actions">
+          <a href="#products" class="btn-white">تسوّق المجموعة ←</a>
+          <a href="https://wa.me/96551118069" target="_blank" class="btn-gold">💬 احجز الآن</a>
+        </div>
+      </div>
+
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="مظهر المنتج">
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <span class="mini">ASALA-TORATH</span>
+        <h2>مجموعتنا — تحف فنية</h2>
+      </div>
+      <div class="products" id="grid"></div>
+    </section>
+
+    <footer>
+      🚚 شحن من الكويت إلى دول الخليج وجميع أنحاء العالم — 96551118069 — @asalat.al.torath.kw.eg
+    </footer>
+
+    <div class="float-wa" onclick="window.open('https://wa.me/96551118069','_blank')">💬</div>
+
+    <div class="cart-modal" id="cartModal" onclick="if(event.target===this) closeCart()">
+      <div class="cart-box">
+        <div class="cart-head">
+          <span>🛒 السلة</span>
+          <button onclick="closeCart()">✕</button>
+        </div>
+        <div class="cart-body" id="cartBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="adminPanel">
+    <div class="admin-top">
+      <h3>🔐 لوحة تحكم asala-torath</h3>
+      <button onclick="location.href=location.pathname" style="background:var(--red);color:#fff;border:none;padding:6px 12px;border-radius:8px;cursor:pointer;">✖ خروج</button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="general">🏠 عام</button>
+      <button class="admin-tab" data-tab="products">📦 المنتجات</button>
+      <button class="admin-tab" data-tab="backup">💾 نسخ</button>
+    </div>
+
+    <div class="admin-panel active" id="tab-general">
+      <div class="admin-card">
+        <div class="admin-field">
+          <label>اسم المتجر</label>
+          <input id="set-storeName" />
+        </div>
+        <div class="admin-field">
+          <label>واتساب</label>
+          <input id="set-whatsapp" />
+        </div>
+        <div class="admin-field">
+          <label>نص الشحن</label>
+          <input id="set-shippingText" />
+        </div>
+        <button class="admin-btn admin-btn-primary" onclick="saveGeneral()">💾 حفظ</button>
+      </div>
+    </div>
+
+    <div class="admin-panel" id="tab-products">
+      <div class="admin-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+          <h4>📦 المنتجات (<span id="prodCount">0</span>)</h4>
+          <button class="admin-btn" style="background:var(--green);color:#fff" onclick="openProductModal()">➕ منتج جديد</button>
+        </div>
+      </div>
+
+      <div id="adminGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;"></div>
+    </div>
+
+    <div class="admin-panel" id="tab-backup">
+      <div class="admin-card">
+        <button class="admin-btn admin-btn-primary" onclick="exportData()">📥 تنزيل نسخة</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-modal" id="productModal" onclick="if(event.target===this) closeProductModal()">
+    <div class="cart-box" style="max-width:540px;">
+      <div class="cart-head">
+        <span id="modalTitle">➕ منتج جديد</span>
+        <button onclick="closeProductModal()">✕</button>
+      </div>
+      <div class="cart-body">
+        <input type="hidden" id="p-id" />
+        <div class="admin-field">
+          <label>اسم المنتج *</label>
+          <input id="p-name" />
+        </div>
+        <div class="admin-field">
+          <label>الجملة الافتتاحية</label>
+          <input id="p-royal" />
+        </div>
+        <div class="admin-field">
+          <label>التصنيف</label>
+          <select id="p-category"></select>
+        </div>
+        <div class="admin-field">
+          <label>الوصف التسويقي *</label>
+          <textarea id="p-marketing" rows="3"></textarea>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div class="admin-field">
+            <label>السعر الجديد</label>
+            <input id="p-price" type="number" step="0.001" />
+          </div>
+          <div class="admin-field">
+            <label>السعر القديم</label>
+            <input id="p-oldPrice" type="number" step="0.001" />
+          </div>
+        </div>
+        <div class="admin-field">
+          <label>رابط الصورة</label>
+          <input id="p-image" />
+        </div>
+
+        <div style="display:flex;gap:6px;margin-top:8px;">
+          <button class="admin-btn" style="flex:1;background:var(--green);color:#fff" onclick="saveProduct()">💾 حفظ</button>
+          <button class="admin-btn" style="flex:1;background:#eee" onclick="closeProductModal()">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const DB_KEY = 'asala_v4';
+    const CATEGORIES = ['صواني هلال', 'صواني جونت', 'ترابيزات بوف', 'مباخر', 'أثاث ملكي'];
+
+    const DEFAULTS = {
+      general: {
+        storeName: 'أصالة التراث المصري',
+        whatsapp: '96551118069',
+        shippingText: '🚚 شحن من الكويت إلى دول الخليج وجميع أنحاء العالم'
+      },
+      products: [
+        {
+          id: 1,
+          name: 'طقم صواني هلال - الملكة نفرتيتي',
+          royal: 'للضيافة شكل..',
+          category: 'صواني هلال',
+          price: 5,
+          oldPrice: 6.5,
+          marketing: 'للضيافة شكل.. وحين يلتقي عبق الأصالة بفن الصدف البحري، يولد طقم صواني يروي حكايةً من الفخامة والجمال. بتفاصيله المنحوتة، وزخارفه المتناغمة، وبريق الصدف الطبيعي، يتجاوز هذا الطقم كونه قطعةً للضيافة، ليصبح تحفةً فنية.',
+          image: 'https://images.unsplash.com/photo-1578500494198-ec6a1f0e7fdb?w=600&q=80'
+        },
+        {
+          id: 2,
+          name: 'ترابيزة بوف - السلطان صلاح الدين',
+          royal: 'للتميز عنوان..',
+          category: 'ترابيزات بوف',
+          price: 45,
+          oldPrice: 55,
+          marketing: 'للتميز عنوان.. وحين يلتقي عبق الأصالة بفن الصدف البحري، تولد ترابيزة تروي حكايةً من الفخامة والجمال.',
+          image: 'https://images.unsplash.com/photo-1537051605637-eb3ce2d0b1b0?w=600&q=80'
+        },
+        {
+          id: 3,
+          name: 'مبخر الملكة حتشبسوت',
+          royal: 'مبخر الصدف قبل الضيوف..',
+          category: 'مباخر',
+          price: 10,
+          oldPrice: 15,
+          marketing: 'حين يلتقي عبق الأصالة بفنّ الصدف البحري، يولد مبخرٌ يروي حكايةً من الفخامة. هذا مو صبغ.. هذا صدف بحر طبيعي يُصنع يدوياً.',
+          image: 'https://images.unsplash.com/photo-1602928294270-9f1c2e8f1e1e?w=600&q=80'
+        }
+      ]
+    };
+
+    let state = loadState();
+    let cart = JSON.parse(localStorage.getItem('asala_cart') || '[]');
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(DB_KEY);
+        if (!raw) return JSON.parse(JSON.stringify(DEFAULTS));
+        const parsed = JSON.parse(raw);
+        return {
+          general: {
+            ...DEFAULTS.general,
+            ...(parsed.general || {})
+          },
+          products: parsed.products && parsed.products.length ? parsed.products : DEFAULTS.products
+        };
+      } catch (e) {
+        return JSON.parse(JSON.stringify(DEFAULTS));
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(DB_KEY, JSON.stringify(state));
+    }
+
+    function toast(message) {
+      const el = document.getElementById('toast');
+      el.textContent = message;
+      el.className = 'toast show';
+      setTimeout(() => el.className = 'toast', 3000);
+    }
+
+    const isAdminMode = new URLSearchParams(location.search).get('admin') === '1';
+
+    function init() {
+      if (isAdminMode) {
+        document.getElementById('publicSite').style.display = 'none';
+        document.getElementById('adminPanel').classList.add('active');
+        loadGeneral();
+        renderAdmin();
+      } else {
+        renderProducts();
+        updateCart();
+      }
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = state.products.map(product => `
+        <div class="card">
+          <div class="card-media">
+            <img src="${product.image}" loading="lazy" alt="${product.name}" />
+            <span class="badge-cat">${product.category}</span>
+            <span class="badge-price">${Number(product.price).toFixed(3)} د.ك</span>
+          </div>
+
+          <div class="card-body">
+            <div class="royal">${product.royal || 'للضيافة شكل..'}</div>
+            <div class="name">${product.name}</div>
+            <div class="marketing">${product.marketing}</div>
+
+            <div class="price-box">
+              <span class="old">${Number(product.oldPrice || product.price).toFixed(3)} د.ك</span>
+              <span class="new">${Number(product.price).toFixed(3)} د.ك</span>
+            </div>
+
+            <button class="btn-order" onclick="addToCart(${product.id})">💬 احجز الآن — 96551118069</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addToCart(productId) {
+      const product = state.products.find(item => item.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          qty: 1
+        });
+      }
+
+      localStorage.setItem('asala_cart', JSON.stringify(cart));
+      updateCart();
+      openCart();
+      toast('✅ تم إضافة المنتج إلى السلة');
+    }
+
+    function updateCart() {
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCount').textContent = count;
+    }
+
+    function openCart() {
+      document.getElementById('cartModal').classList.add('open');
+      renderCart();
+    }
+
+    function closeCart() {
+      document.getElementById('cartModal').classList.remove('open');
+    }
+
+    function renderCart() {
+      const body = document.getElementById('cartBody');
+
+      if (!cart.length) {
+        body.innerHTML = '<div class="empty-state">سلتك فارغة</div>';
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      body.innerHTML = `
+        ${cart.map((item, index) => `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="info">
+              <div class="name">${item.name}</div>
+              <div class="price">${(item.price * item.qty).toFixed(3)} د.ك</div>
+              <div class="qty-box">
+                <button onclick="changeQty(${index}, -1)">-</button>
+                <span>${item.qty}</span>
+                <button onclick="changeQty(${index}, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+
+        <div class="cart-total">
+          <span>الإجمالي:</span>
+          <span>${total.toFixed(3)} د.ك</span>
+        </div>
+
+        <button class="checkout-btn" onclick="checkout()">💬 إتمام الطلب واتساب</button>
+      `;
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      localStorage.setItem('asala_cart', JSON.stringify(cart));
+      renderCart();
+      updateCart();
+    }
+
+    function checkout() {
+      if (!cart.length) {
+        toast('السلة فارغة');
+        return;
+      }
+
+      let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      let msg = `السلام عليكم 🌹\nطلب من ${state.general.storeName}:\n\n`;
+
+      cart.forEach((item, index) => {
+        msg += `${index + 1}. ${item.name} × ${item.qty} = ${(item.price * item.qty).toFixed(3)} د.ك\n`;
+      });
+
+      msg += `\nالإجمالي: ${total.toFixed(3)} د.ك\n🚚 ${state.general.shippingText}`;
+
+      window.open(`https://wa.me/${state.general.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    document.querySelectorAll('.admin-tab').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.admin-tab').forEach(item => item.classList.remove('active'));
+        document.querySelectorAll('.admin-panel').forEach(item => item.classList.remove('active'));
+
+        button.classList.add('active');
+        const tabId = 'tab-' + button.dataset.tab;
+        const el = document.getElementById(tabId);
+        if (el) el.classList.add('active');
+      });
+    });
+
+    function loadGeneral() {
+      const g = state.general;
+      document.getElementById('set-storeName').value = g.storeName || '';
+      document.getElementById('set-whatsapp').value = g.whatsapp || '';
+      document.getElementById('set-shippingText').value = g.shippingText || '';
+    }
+
+    function saveGeneral() {
+      state.general = {
+        storeName: document.getElementById('set-storeName').value.trim() || 'أصالة التراث المصري',
+        whatsapp: (document.getElementById('set-whatsapp').value || '').replace(/[^0-9]/g, ''),
+        shippingText: document.getElementById('set-shippingText').value.trim() || '🚚 شحن من الكويت إلى دول الخليج وجميع أنحاء العالم'
+      };
+
+      saveState();
+      toast('✅ تم الحفظ');
+    }
+
+    function renderAdmin() {
+      const grid = document.getElementById('adminGrid');
+      const prodCount = document.getElementById('prodCount');
+
+      prodCount.textContent = state.products.length;
+
+      grid.innerHTML = state.products.map(product => `
+        <div style="background:#fff;border:1px solid #eee;border-radius:10px;overflow:hidden;">
+          <div style="height:110px;background:#f0e8d8;">
+            <img src="${product.image}" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+          <div style="padding:8px;">
+            <div style="font-size:11px;font-weight:800;">${product.name}</div>
+            <div style="color:var(--gold);font-weight:800;">${Number(product.price).toFixed(3)} د.ك</div>
+            <div style="display:flex;gap:4px;margin-top:6px;">
+              <button class="admin-btn" style="flex:1;background:#f5f0e5" onclick="openProductModal(${product.id})">✏️</button>
+              <button class="admin-btn" style="flex:1;background:var(--red);color:#fff" onclick="deleteProduct(${product.id})">🗑️</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openProductModal(id = null) {
+      const categorySelect = document.getElementById('p-category');
+      categorySelect.innerHTML = CATEGORIES.map(cat => `<option value="${cat}">${cat}</option>`).join('');
+
+      document.getElementById('p-id').value = '';
+      document.getElementById('p-name').value = '';
+      document.getElementById('p-royal').value = '';
+      document.getElementById('p-marketing').value = '';
+      document.getElementById('p-price').value = '';
+      document.getElementById('p-oldPrice').value = '';
+      document.getElementById('p-image').value = '';
+
+      if (id) {
+        const product = state.products.find(item => item.id === id);
+        if (!product) return;
+
+        document.getElementById('p-id').value = product.id;
+        document.getElementById('p-name').value = product.name;
+        document.getElementById('p-royal').value = product.royal || '';
+        document.getElementById('p-category').value = product.category;
+        document.getElementById('p-marketing').value = product.marketing || '';
+        document.getElementById('p-price').value = product.price;
+        document.getElementById('p-oldPrice').value = product.oldPrice || product.price;
+        document.getElementById('p-image').value = product.image || '';
+      }
+
+      document.getElementById('productModal').classList.add('open');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.remove('open');
+    }
+
+    function saveProduct() {
+      const name = document.getElementById('p-name').value.trim();
+      const price = parseFloat(document.getElementById('p-price').value);
+      const marketing = document.getElementById('p-marketing').value.trim();
+
+      if (!name || isNaN(price) || !marketing) {
+        toast('⚠️ اكمل اسم المنتج والسعر والوصف');
+        return;
+      }
+
+      const idValue = document.getElementById('p-id').value;
+      const product = {
+        id: idValue ? Number(idValue) : Date.now(),
+        name,
+        royal: document.getElementById('p-royal').value.trim(),
+        category: document.getElementById('p-category').value,
+        marketing,
+        price,
+        oldPrice: parseFloat(document.getElementById('p-oldPrice').value) || price,
+        image: document.getElementById('p-image').value.trim() || 'https://images.unsplash.com/photo-1578500494198-ec6a1f0e7fdb?w=600&q=80'
+      };
+
+      if (idValue) {
+        const index = state.products.findIndex(item => item.id === Number(idValue));
+        if (index !== -1) state.products[index] = product;
+      } else {
+        state.products.unshift(product);
+      }
+
+      saveState();
+      closeProductModal();
+      renderAdmin();
+      renderProducts();
+      toast('✅ تم حفظ المنتج');
+    }
+
+    function deleteProduct(id) {
+      if (!confirm('هل تريد حذف هذا المنتج؟')) return;
+
+      state.products = state.products.filter(item => item.id !== id);
+      saveState();
+      renderAdmin();
+      renderProducts();
+      toast('🗑️ تم الحذف');
+    }
+
+    function exportData() {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'backup.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
